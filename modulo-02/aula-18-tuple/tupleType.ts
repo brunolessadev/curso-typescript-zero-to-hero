@@ -17,3 +17,25 @@ let listaFrutas: [string, ...string[]] = ['Maçã', 'Banana', 'Laranja', 'Uva', 
  //Lista de tuplas com stred opratior rest, onde o primeiro elemento é do tipo string e os demais elementos são do tipo string[] (array de strings).
 console.log(listaFrutas);
 
+let listaFrutas2: [number, boolean, ...string[]] = [5, true, ...listaFrutas];
+console.log(listaFrutas2);  
+//Lista de tuplas com stred opratior rest, onde os dois primeiros elementos são do tipo number e boolean, respectivamente, e os demais elementos são do tipo string[] (array de strings).
+
+function listarPessoas(nomes: string[], idades: number[],){
+    return [...nomes, ...idades]
+}
+
+let resultado = listarPessoas(['João', 'Maria', 'Carlos'], [30, 25, 28]);
+console.log(resultado);
+
+
+//Labeled Tuples (Tuplas Rotuladas)
+type Nome =
+| [primeiroNome: string, sobrenome: string]
+| [primeiroNome: string, nomeMeio: string, sobrenome: string]
+
+function criarPessoa(...nome: Nome) {
+    return[...nome];
+}
+
+console.log(criarPessoa('João', 'Silva', 'Santos'));
