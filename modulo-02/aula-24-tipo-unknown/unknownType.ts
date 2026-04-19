@@ -21,4 +21,8 @@ let algumaCoisaAny: any;
 let algumaCoisaUnknown: unknown;
 
 console.log(algumaCoisaAny.toFixed());
-console.log(algumaCoisaUnknown.toFixed());
+
+
+if(typeof algumaCoisaUnknown === 'number') {
+    console.log(algumaCoisaUnknown.toFixed());
+}
