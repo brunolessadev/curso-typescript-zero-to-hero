@@ -4,6 +4,10 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "build": "rimraf dist && tsc",
+    "preserveWatch": "npm run build",
+    "serve": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,10 +15,8 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
-    "@types/body-parser": "^1.19.6",
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
-    "body-parser": "^2.2.2",
     "cross-env": "^10.1.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
